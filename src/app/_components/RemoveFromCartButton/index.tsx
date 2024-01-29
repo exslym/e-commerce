@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 
 import { Product } from '../../../payload/payload-types'
 import { useCart } from '../../_providers/Cart'
@@ -27,7 +28,14 @@ export const RemoveFromCartButton: React.FC<{
       }}
       className={[className, classes.removeFromCartButton].filter(Boolean).join(' ')}
     >
-      Remove
+      <Image
+        src="/assets/icons/delete.svg"
+        alt="delete"
+        height={0}
+        width={0}
+        style={{ width: '24px', height: 'auto' }}
+        className={classes.qtnBt}
+      />
     </button>
   )
 }

@@ -1,5 +1,7 @@
 import React from 'react'
 import { Metadata } from 'next'
+import Image from 'next/image'
+import Link from 'next/link'
 
 import { Gutter } from '../../_components/Gutter'
 import { RenderParams } from '../../_components/RenderParams'
@@ -15,11 +17,41 @@ export default async function Login() {
   })
 
   return (
-    <Gutter className={classes.login}>
-      <RenderParams className={classes.params} />
-      <h1>Log in</h1>
-      <LoginForm />
-    </Gutter>
+    <section className={classes.login}>
+      <div className={classes.heroImg}>
+        <Link href="/">
+          <Image
+            src="/logo-black.svg"
+            alt="logo"
+            height={0}
+            width={0}
+            style={{ width: '250px', height: 'auto' }}
+            className={classes.logo}
+          />
+        </Link>
+      </div>
+
+      <div className={classes.formWrapper}>
+        <div className={classes.formContainer}>
+          <RenderParams className={classes.params} />
+
+          <div className={classes.formTitle}>
+            <h3>Welcome</h3>
+            <Image
+              src="/assets/icons/hand.png"
+              alt="hand"
+              height={0}
+              width={0}
+              style={{ width: '30px', height: 'auto' }}
+            />
+          </div>
+
+          <p>Please login here</p>
+
+          <LoginForm />
+        </div>
+      </div>
+    </section>
   )
 }
 
